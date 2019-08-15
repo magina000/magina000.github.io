@@ -46,7 +46,7 @@ npm install --save-dev run-sequence
 修改第 134 行
 
 ```
-// manifest[originalFile] = revisionedFile;
+//manifest[originalFile] = revisionedFile;
 manifest[originalFile] = originalFile + '?v=' + file.revHash;
 ```
 
@@ -55,8 +55,8 @@ manifest[originalFile] = originalFile + '?v=' + file.revHash;
 修改第 9 行
 
 ```
-// return modifyFilename(pth, (filename, ext) =&gt; `${filename}-${hash}${ext}`);
-return modifyFilename(pth, (filename, ext) =&gt; `${filename}${ext}`);
+//return modifyFilename(pth, (filename, ext) => `${filename}-${hash}${ext}`);
+return modifyFilename(pth, (filename, ext) => `${filename}${ext}`);
 ```
 
 ###### > node_modules/gulp-rev-collector/index.js
@@ -64,21 +64,21 @@ return modifyFilename(pth, (filename, ext) =&gt; `${filename}${ext}`);
 修改第 40 行
 
 ```
-// var cleanReplacement =  path.basename(json[key]).replace(new RegExp( opts.revSuffix ), '' );
+//var cleanReplacement =  path.basename(json[key]).replace(new RegExp( opts.revSuffix ), '' );
 var cleanReplacement =  path.basename(json[key]).split('?')[0];
 ```
 
 修改第 139 行
 
 ```
-// regexp: new RegExp(  dirRule.dirRX + pattern, 'g' ),
+//regexp: new RegExp(  dirRule.dirRX + pattern, 'g' ),
 regexp: new RegExp(  dirRule.dirRX + pattern +'(\\?v=\\w{10})?', 'g' ),
 ```
 
 第 164 行
 
 ```
-// regexp: new RegExp( prefixDelim + pattern, 'g' ),
+//regexp: new RegExp( prefixDelim + pattern, 'g' ),
 regexp: new RegExp( prefixDelim + pattern+'(\\?v=\\w{10,})?', 'g' ),
 ```
 
