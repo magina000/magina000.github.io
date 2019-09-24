@@ -154,7 +154,7 @@ template {
 body {
   position: relative;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 2;
   color: #555;
   background: #fff;
@@ -166,7 +166,7 @@ body {
 }
 @media (min-width: 1200px) {
   body {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 h1,
@@ -1223,7 +1223,7 @@ pre .javascript .function {
 .post-body .figure .caption {
   margin: -20px auto 15px;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   color: #999;
   font-weight: bold;
   line-height: 1;
@@ -1736,7 +1736,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff0bff;
+  background: #cc21b3;
 }
 .feed-link,
 .chat {
@@ -2112,7 +2112,7 @@ ul.popular-posts .popular-posts-item {
 }
 ul.popular-posts .popular-posts-item .popular-posts-title {
   font-weight: normal;
-  font-size: 14px;
+  font-size: 16px;
   margin: 0;
   line-height: 2.4;
 }
@@ -2358,7 +2358,7 @@ ul.breadcrumb {
   margin: 1em 0;
   padding: 0 2em;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
 }
 ul.breadcrumb li {
   display: inline;
@@ -2504,6 +2504,24 @@ embed {
 }
 img.img-topic {
   width: 100%;
+}
+p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+}
+.posts-expand .post-meta {
+  margin: 3px 0 20px 0;
+}
+.highlight {
+  margin: 10px 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 10px 0 10px;
 }
 .post {
   margin-top: 25px;

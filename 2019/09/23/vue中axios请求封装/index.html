@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="一、水平居中(1)文本/行内元素/行内块级元素原理：text-align只控制行内内容(文字、行内元素、行内块级元素)如何相对他的块父元素对齐 123#parent&amp;#123;    text-align: center;&amp;#125; *只对行内内容有效；属性会继承影响到后代行内内容；如果子元素宽度大于父元素宽度则无效，只有后代行内内容中宽度小于设置text-align属性的元素宽度的时候，才会水">
-<meta name="keywords" content="常见布局实现">
+  <meta name="description" content="axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。默认已经安装axios 引入在项目的src目录中，新建一个api文件夹，然后在里面新建一个http.js，index.js文件。http.js文件用来封装axios，index.js用来统一管理接口 12345// 在http.js中引入axiosimport axios from &apos;axios&apos;; // 引入axio">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇博客（CSS相关）">
-<meta property="og:url" content="http://yoursite.com/2019/07/10/我的第一篇博客/index.html">
+<meta property="og:title" content="vue中axios请求封装">
+<meta property="og:url" content="http://yoursite.com/2019/09/23/vue中axios请求封装/index.html">
 <meta property="og:site_name" content="Magina&#39;s Blog">
-<meta property="og:description" content="一、水平居中(1)文本/行内元素/行内块级元素原理：text-align只控制行内内容(文字、行内元素、行内块级元素)如何相对他的块父元素对齐 123#parent&amp;#123;    text-align: center;&amp;#125; *只对行内内容有效；属性会继承影响到后代行内内容；如果子元素宽度大于父元素宽度则无效，只有后代行内内容中宽度小于设置text-align属性的元素宽度的时候，才会水">
+<meta property="og:description" content="axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。默认已经安装axios 引入在项目的src目录中，新建一个api文件夹，然后在里面新建一个http.js，index.js文件。http.js文件用来封装axios，index.js用来统一管理接口 12345// 在http.js中引入axiosimport axios from &apos;axios&apos;; // 引入axio">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-23T08:42:25.794Z">
+<meta property="og:updated_time" content="2019-09-24T02:18:07.794Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的第一篇博客（CSS相关）">
-<meta name="twitter:description" content="一、水平居中(1)文本/行内元素/行内块级元素原理：text-align只控制行内内容(文字、行内元素、行内块级元素)如何相对他的块父元素对齐 123#parent&amp;#123;    text-align: center;&amp;#125; *只对行内内容有效；属性会继承影响到后代行内内容；如果子元素宽度大于父元素宽度则无效，只有后代行内内容中宽度小于设置text-align属性的元素宽度的时候，才会水">
+<meta name="twitter:title" content="vue中axios请求封装">
+<meta name="twitter:description" content="axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。默认已经安装axios 引入在项目的src目录中，新建一个api文件夹，然后在里面新建一个http.js，index.js文件。http.js文件用来封装axios，index.js用来统一管理接口 12345// 在http.js中引入axiosimport axios from &apos;axios&apos;; // 引入axio">
 
 
 
@@ -113,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/10/我的第一篇博客/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/23/vue中axios请求封装/">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>我的第一篇博客（CSS相关） | Magina's Blog</title>
+  <title>vue中axios请求封装 | Magina's Blog</title>
   
 
 
@@ -315,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/10/我的第一篇博客/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/23/vue中axios请求封装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="caimj">
@@ -332,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">我的第一篇博客（CSS相关）
+          <h1 class="post-title" itemprop="name headline">vue中axios请求封装
 
               
             
@@ -358,7 +358,7 @@
                 
               
 
-              <time title="创建时间：2019-07-10 01:32:12" itemprop="dateCreated datePublished" datetime="2019-07-10T01:32:12+08:00">2019-07-10</time>
+              <time title="创建时间：2019-09-23 16:45:19" itemprop="dateCreated datePublished" datetime="2019-09-23T16:45:19+08:00">2019-09-23</time>
             </span>
           
 
@@ -411,14 +411,41 @@
       
 
       
-        <h4 id="一、水平居中"><a href="#一、水平居中" class="headerlink" title="一、水平居中"></a>一、水平居中</h4><h5 id="1-文本-行内元素-行内块级元素"><a href="#1-文本-行内元素-行内块级元素" class="headerlink" title="(1)文本/行内元素/行内块级元素"></a>(1)文本/行内元素/行内块级元素</h5><p><em>原理：text-align只控制行内内容(文字、行内元素、行内块级元素)如何相对他的块父元素对齐</em><br> <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#parent</span>&#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>*只对行内内容有效；属性会继承影响到后代行内内容；如果子元素宽度大于父元素宽度则无效，只有后代行内内容中宽度小于设置text-align属性的元素宽度的时候，才会水平居中</p>
-<h5 id="2-单个块级元素"><a href="#2-单个块级元素" class="headerlink" title="(2)单个块级元素"></a>(2)单个块级元素</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#son</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>; <span class="comment">/*必须定宽*/</span></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。"><a href="#axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。" class="headerlink" title="axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。"></a>axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。</h2><p>默认已经安装axios</p>
+<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>在项目的src目录中，新建一个api文件夹，然后在里面新建一个http.js，index.js文件。http.js文件用来封装axios，index.js用来统一管理接口</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在http.js中引入axios</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span>; <span class="comment">// 引入axios</span></span><br><span class="line"><span class="keyword">import</span> QS <span class="keyword">from</span> <span class="string">'qs'</span>; <span class="comment">// 引入qs模块，用来序列化post类型的数据，后面会提到</span></span><br><span class="line"><span class="comment">// ElementUI的message提示框组件，可根据使用的ui组件更改。</span></span><br><span class="line"><span class="keyword">import</span> &#123; Message &#125; <span class="keyword">from</span> <span class="string">'element-ui'</span>;</span><br></pre></td></tr></table></figure>
 
-<h5 id="3-多个块级元素"><a href="#3-多个块级元素" class="headerlink" title="(3)多个块级元素"></a>(3)多个块级元素</h5><p><em>原理：text-align只控制行内内容(文字、行内元素、行内块级元素)如何相对他的块父元素对齐</em></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#parent</span>&#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.son</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block; <span class="comment">/*改为行内或者行内块级形式，以达到text-align对其生效*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="环境切换"><a href="#环境切换" class="headerlink" title="环境切换"></a>环境切换</h3><p>通过node的环境变量来匹配默认的接口url前缀。axios.defaults.baseURL设置axios的默认请求地址。</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//环境切换(主要是开发和生产环境) e.g.</span></span><br><span class="line"><span class="built_in">if</span> (<span class="built_in">process</span>.env.NODE_ENV == <span class="string">'development'</span>) &#123;    </span><br><span class="line">  axios.defaults.baseURL = <span class="string">'/api'</span>;&#125; </span><br><span class="line"><span class="built_in">else</span> <span class="built_in">if</span> (<span class="built_in">process</span>.env.NODE_ENV == <span class="string">'production'</span>) &#123;    </span><br><span class="line">  axios.defaults.baseURL = <span class="string">''</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="4-使用绝对定位实现"><a href="#4-使用绝对定位实现" class="headerlink" title="(4)使用绝对定位实现"></a>(4)使用绝对定位实现</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#parent</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;  <span class="comment">/*定宽*/</span></span><br><span class="line">    <span class="attribute">position</span>: relative;  <span class="comment">/*父相*/</span></span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#f00</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#son</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;  <span class="comment">/*子绝*/</span></span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;  <span class="comment">/*父元素宽度一半,这里等同于left:100px*/</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(-50%);  <span class="comment">/*自身宽度一半,等同于margin-left: -50px;*/</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;  <span class="comment">/*定宽*/</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#00ff00</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="创建实例并设置请求超时"><a href="#创建实例并设置请求超时" class="headerlink" title="创建实例并设置请求超时"></a>创建实例并设置请求超时</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var<span class="built_in"> instance </span>= axios.create(&#123;timeout: 1000 * 12&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="POST请求头的设置"><a href="#POST请求头的设置" class="headerlink" title="POST请求头的设置"></a>POST请求头的设置</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">instance.defaults.headers.post[<span class="symbol">'Content</span>-<span class="keyword">Type</span>'] = <span class="symbol">'application</span>/x-www-form-urlencoded;charset=UTF-<span class="number">8</span>';</span><br></pre></td></tr></table></figure>
+
+<h3 id="请求拦截"><a href="#请求拦截" class="headerlink" title="请求拦截"></a>请求拦截</h3><p>在发送请求前可以进行一个请求的拦截，为什么要拦截呢，拦截请求是用来做什么的呢？比如，有些请求是需要用户登录之后才能访问的，或者post请求的时候，需要序列化我们提交的数据。这时候，可以在请求被发送之前进行一个拦截，从而进行想要的操作。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果用到store缓存登录信息,先导入vuex</span></span><br><span class="line">import store from '@/store/index';</span><br><span class="line">instance.interceptors.request.<span class="keyword">use</span>(    </span><br><span class="line">  config =&gt; &#123;</span><br><span class="line">    <span class="comment">// 每次发送请求之前判断vuex中是否存在token        </span></span><br><span class="line">    <span class="comment">// 如果存在，则统一在http请求的header都加上token，这样后台根据token判断你的登录情况</span></span><br><span class="line">    <span class="comment">// 即使本地存在token，也有可能token是过期的，所以在响应拦截器中要对返回状态进行判断</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">token</span> = store.state.<span class="keyword">token</span>;        </span><br><span class="line">    <span class="keyword">token</span> &amp;&amp; (config.headers.Authorization = <span class="keyword">token</span>);        </span><br><span class="line">    <span class="keyword">return</span> config;    </span><br><span class="line">  &#125;,    </span><br><span class="line">  <span class="keyword">error</span> =&gt; &#123;        </span><br><span class="line">    <span class="keyword">return</span> Promise.<span class="keyword">error</span>(<span class="keyword">error</span>);    </span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>补充：说一下token，一般是在登录完成之后，将用户的token通过localStorage或者cookie存在本地，然后用户每次在进入页面的时候（即在main.js中），会首先从本地存储中读取token，如果token存在说明用户已经登陆过，则更新vuex中的token状态。然后，在每次请求接口的时候，都会在请求的header中携带token，后台人员就可以根据你携带的token来判断你的登录是否过期，如果没有携带，则说明没有登录过。</p>
+<h3 id="响应拦截"><a href="#响应拦截" class="headerlink" title="响应拦截"></a>响应拦截</h3><p>将服务器返回给我们的数据进行处理。如果后台返回的状态码是200，则正常返回数据，否则根据错误的状态码类型进行一些需要的错误捕捉提示，同时包括没登录或登录过期后重定向登录页。<br><em>报错提示</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> tip = <span class="function"><span class="params">msg</span> =&gt;</span> &#123;    </span><br><span class="line">  Message(&#123;        </span><br><span class="line">      message: msg,        </span><br><span class="line">      duration: <span class="number">1000</span>  </span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>跳转登录页</em></p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const toLogin = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  router.replace(&#123;</span><br><span class="line">    path: <span class="string">'/login'</span>,        </span><br><span class="line">    query: &#123;</span><br><span class="line">        redirect: router.currentRoute.fullPath</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>错误状态码捕捉</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> errorHandle = <span class="function">(<span class="params">status, message</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 状态码判断</span></span><br><span class="line">  <span class="keyword">switch</span> (status) &#123;</span><br><span class="line">    <span class="comment">// 401: 未登录状态，跳转登录页</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">401</span>:</span><br><span class="line">      toLogin();</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="comment">// 403 token过期</span></span><br><span class="line">    <span class="comment">// 清除token并跳转登录页</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">403</span>:</span><br><span class="line">      tip(<span class="string">'登录过期，请重新登录'</span>);</span><br><span class="line">      localStorage.removeItem(<span class="string">'token'</span>);</span><br><span class="line">      store.commit(<span class="string">'loginSuccess'</span>, <span class="literal">null</span>);</span><br><span class="line">      setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">          toLogin();</span><br><span class="line">      &#125;, <span class="number">1000</span>);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="comment">// 404请求不存在</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">404</span>:</span><br><span class="line">      tip(<span class="string">'请求的资源不存在'</span>); </span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="built_in">console</span>.log(message);   </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><font size="4"><strong>完整拦截</strong></font></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 响应拦截器</span></span><br><span class="line">instance.interceptors.response.use(    </span><br><span class="line">  <span class="comment">// 请求成功</span></span><br><span class="line">  res =&gt; res.status === <span class="number">200</span> ? <span class="built_in">Promise</span>.resolve(res) : <span class="built_in">Promise</span>.reject(res),    </span><br><span class="line">  <span class="comment">// 请求失败</span></span><br><span class="line">  err =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; response &#125; = err;</span><br><span class="line">    <span class="keyword">if</span> (response) &#123;</span><br><span class="line">      <span class="comment">// 请求已发出，但是不在2xx的范围 </span></span><br><span class="line">      errorHandle(response.status, response.data.message);</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(response);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 处理断网的情况</span></span><br><span class="line">      <span class="comment">// eg:请求超时或断网时，更新state的network状态</span></span><br><span class="line">      <span class="comment">// network状态在app.vue中控制着一个全局的断网提示组件的显示隐藏</span></span><br><span class="line">      <span class="comment">// 关于断网组件中的刷新重新获取数据，会在断网组件中说明</span></span><br><span class="line">      <span class="keyword">if</span> (!<span class="built_in">window</span>.navigator.onLine) &#123;</span><br><span class="line">          store.commit(<span class="string">'changeNetwork'</span>, <span class="literal">false</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(err);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"><span class="comment">//拦截器完成后即可抛出axios</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> instance;</span><br></pre></td></tr></table></figure>
+
+<h3 id="api管理"><a href="#api管理" class="headerlink" title="api管理"></a>api管理</h3><p>index.js中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'@/api/http'</span>; <span class="comment">// 导入http中创建的axios实例</span></span><br><span class="line"><span class="keyword">import</span> qs <span class="keyword">from</span> <span class="string">'qs'</span>; <span class="comment">// 导入qs模块进行请求参数格式化，或者根据需求自定义</span></span><br><span class="line"><span class="comment">//get，post本就是promise，不需要过度封装直接使用</span></span><br><span class="line"><span class="comment">//e.g.</span></span><br><span class="line"><span class="keyword">const</span> getDemo = (params) &#123;        </span><br><span class="line">  <span class="keyword">return</span> axios.get(<span class="string">`url`</span>, &#123;</span><br><span class="line">    params: params</span><br><span class="line">  &#125;).then(</span><br><span class="line">    res =&gt; res.data;</span><br><span class="line">  );    </span><br><span class="line">&#125;, </span><br><span class="line"><span class="keyword">const</span> postDemo = (params) &#123;</span><br><span class="line">  <span class="keyword">return</span> axios.post(<span class="string">`url`</span>, </span><br><span class="line">    qs.stringify(params)</span><br><span class="line">  ).then(</span><br><span class="line">    res =&gt; res.data;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">  getDemo,</span><br><span class="line">  postDemo</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="页面中调用"><a href="#页面中调用" class="headerlink" title="页面中调用"></a>页面中调用</h3><p>为了方便api的调用，需要将其挂载到vue的原型上。在main.js中：</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> api <span class="keyword">from</span> <span class="string">'./api'</span> <span class="comment">// 导入api接口</span></span><br><span class="line">Vue.prototype.$http = api; <span class="comment">// 将api挂载到vue的原型上</span></span><br></pre></td></tr></table></figure>
+
+<p>页面中调用</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;    </span><br><span class="line">  <span class="function"><span class="keyword">func</span><span class="params">()</span> &#123;      </span></span><br><span class="line">    this.$http.getDemo(&#123;        </span><br><span class="line">      param: <span class="number">123</span>      </span><br><span class="line">    &#125;).<span class="keyword">then</span>(res=&gt; &#123;</span><br><span class="line">      //执行某些操作      </span><br><span class="line">    &#125;)    </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -448,7 +475,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/常见布局实现/" rel="tag"># 常见布局实现</a>
+            <a href="/tags/vue/" rel="tag"># vue</a>
           
         </div>
       
@@ -461,15 +488,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/08/15/详解js中的this/" rel="next" title="详解js中的this">
+                <i class="fa fa-chevron-left"></i> 详解js中的this
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/30/使用gulp解决静态资源缓存问题/" rel="prev" title="使用gulp解决静态资源缓存问题">
-                使用gulp解决静态资源缓存问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -614,7 +641,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、水平居中"><span class="nav-number">1.</span> <span class="nav-text">一、水平居中</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-文本-行内元素-行内块级元素"><span class="nav-number">1.1.</span> <span class="nav-text">(1)文本/行内元素/行内块级元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-单个块级元素"><span class="nav-number">1.2.</span> <span class="nav-text">(2)单个块级元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-多个块级元素"><span class="nav-number">1.3.</span> <span class="nav-text">(3)多个块级元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-使用绝对定位实现"><span class="nav-number">1.4.</span> <span class="nav-text">(4)使用绝对定位实现</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。"><span class="nav-number">1.</span> <span class="nav-text">axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入"><span class="nav-number">1.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境切换"><span class="nav-number">1.2.</span> <span class="nav-text">环境切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建实例并设置请求超时"><span class="nav-number">1.3.</span> <span class="nav-text">创建实例并设置请求超时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST请求头的设置"><span class="nav-number">1.4.</span> <span class="nav-text">POST请求头的设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求拦截"><span class="nav-number">1.5.</span> <span class="nav-text">请求拦截</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应拦截"><span class="nav-number">1.6.</span> <span class="nav-text">响应拦截</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#api管理"><span class="nav-number">1.7.</span> <span class="nav-text">api管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面中调用"><span class="nav-number">1.8.</span> <span class="nav-text">页面中调用</span></a></li></ol></li></ol></div>
             
 
           </div>
