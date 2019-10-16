@@ -106,9 +106,15 @@ axios.interceptors.response.use(
 ```
 //路由跳转之前
 //如果token不存在且不是登录页，跳转登录页
+//如果有跳转地址要默认登录，就将路由当参数传到登录页
 router.beforeEach((to, from, next) => {
   if (to.path !== '/login' && !store.state.token) {
-    return next('/login')
+    next({                            
+      path: '/login',                            
+      query: { 
+          redirect: to.fullPath 
+      }                        
+    })
   }
    next()
 })
