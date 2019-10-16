@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Magina&#39;s Blog">
 <meta property="og:description" content="vue+axios 前端实现登录拦截（包括路由拦截、http拦截）整体思路：  登录时，发送登录请求，成功后将后台返回的登录用户信息（token）存在sessionStorage中。 接口请求时，在axios请求拦截器中给http头携带token发送给后台，用于验证登录状态是否过期（request interceptors）。 请求时token如果过期，清除sessionstorage的用户信息，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-15T08:38:41.918Z">
+<meta property="og:updated_time" content="2019-10-16T07:54:27.048Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue+axios实现登录拦截">
 <meta name="twitter:description" content="vue+axios 前端实现登录拦截（包括路由拦截、http拦截）整体思路：  登录时，发送登录请求，成功后将后台返回的登录用户信息（token）存在sessionStorage中。 接口请求时，在axios请求拦截器中给http头携带token发送给后台，用于验证登录状态是否过期（request interceptors）。 请求时token如果过期，清除sessionstorage的用户信息，">
@@ -428,7 +428,7 @@
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//请求拦截</span></span><br><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//存在token，写入请求头</span></span><br><span class="line">  <span class="keyword">if</span>(store.state.token)&#123;</span><br><span class="line">    config.headers.Authorization = <span class="string">`<span class="subst">$&#123;store.state.token&#125;</span>`</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> config</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//返回拦截</span></span><br><span class="line">axios.interceptors.response.use(</span><br><span class="line">  response =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> response;</span><br><span class="line">  &#125;,</span><br><span class="line">  err =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span>(err.response)&#123;</span><br><span class="line">      <span class="keyword">switch</span> (error.response.status) &#123;</span><br><span class="line">        <span class="comment">// 401: 未登录</span></span><br><span class="line">        <span class="comment">// 未登录则跳转登录页面，并携带当前页面的路径</span></span><br><span class="line">        <span class="keyword">case</span> <span class="number">401</span>:</span><br><span class="line">            router.replace(&#123;                        </span><br><span class="line">                path: <span class="string">'/login'</span>,                        </span><br><span class="line">                query: &#123; </span><br><span class="line">                    redirect: router.currentRoute.fullPath </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="comment">// 403 token过期</span></span><br><span class="line">        <span class="comment">// 登录过期对用户进行提示</span></span><br><span class="line">        <span class="comment">// 清除本地token和清空vuex中token对象</span></span><br><span class="line">        <span class="comment">// 跳转登录页面</span></span><br><span class="line">        <span class="keyword">case</span> <span class="number">403</span>:</span><br><span class="line">            store.commit(<span class="string">'logout'</span>);</span><br><span class="line">            router.replace(&#123;                            </span><br><span class="line">                path: <span class="string">'/login'</span>,                            </span><br><span class="line">                query: &#123; </span><br><span class="line">                    redirect: router.currentRoute.fullPath </span><br><span class="line">                &#125;                        </span><br><span class="line">            &#125;);     </span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error.response.data)   <span class="comment">// 返回接口返回的错误信息</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <h2 id="路由拦截"><a href="#路由拦截" class="headerlink" title="路由拦截"></a>路由拦截</h2><p><font size="3"> <strong>router&gt;index.js</strong> </font></p>
-<figure class="highlight moonscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//路由跳转之前</span><br><span class="line">//如果token不存在且不是登录页，跳转登录页</span><br><span class="line">router.beforeEach(<span class="function"><span class="params">(to, <span class="keyword">from</span>, <span class="built_in">next</span>)</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (to.path !== <span class="string">'/login'</span> &amp;&amp; !store.state.token) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">next</span>(<span class="string">'/login'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">   <span class="built_in">next</span>()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//路由跳转之前</span></span><br><span class="line"><span class="comment">//如果token不存在且不是登录页，跳转登录页</span></span><br><span class="line"><span class="comment">//如果有跳转地址要默认登录，就将路由当参数传到登录页</span></span><br><span class="line">router.beforeEach((to, from, next) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (to<span class="selector-class">.path</span> !== <span class="string">'/login'</span> &amp;&amp; !store<span class="selector-class">.state</span><span class="selector-class">.token</span>) &#123;</span><br><span class="line">    next(&#123;                            </span><br><span class="line">      path: <span class="string">'/login'</span>,                            </span><br><span class="line">      query: &#123; </span><br><span class="line">          redirect: to<span class="selector-class">.fullPath</span> </span><br><span class="line">      &#125;                        </span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">   next()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -437,6 +437,13 @@
 
   <div class="popular-posts-header">相关文章推荐</div>
   <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2019/10/16/vueRouter-history模式下的nginx配置/" rel="bookmark">vueRouter history模式下的nginx配置</a></div>
+      
+    </li>
   
     <li class="popular-posts-item">
       
@@ -492,6 +499,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/16/vueRouter-history模式下的nginx配置/" rel="prev" title="vueRouter history模式下的nginx配置">
+                vueRouter history模式下的nginx配置 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -562,7 +573,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
