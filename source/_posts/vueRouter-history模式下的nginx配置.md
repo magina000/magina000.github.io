@@ -49,6 +49,32 @@ location /project {
   }
 }
 ```
+### 问题
+反向代理后丢失cookie的问题
+JSESSIONID的path和接口访问的path不同导致
+
+**解决方案**
+1、如果只是host、端口转换，则session不会丢失。例如：
+```
+location /testwx {
+  proxy_pass   http://127.0.0.1:8080/testwx;
+}
+```
+通过浏览器访问http://127.0.0.1/testwx时，浏览器的cookie内有jsessionid。再次访问时，浏览器会发送当前的cookie。
+2、如果路径也变化了，则需要设置cookie的路径转换，nginx.conf的配置如下
+```
+location /testwx {
+        proxy_pass   http://127.0.0.1:8080/wx;
+}
+```
+通过浏览器访问http://127.0.0.1/testwx时，浏览器的cookie内没有jsessionid。再次访问时，后台当然无法获取到cookie了。加上路径转换：proxy_cookie_path  /wx /testwx;则可以将wx的cookie输出到testwx上，Tomcat的session正常了。
+正确的配置是
+```
+location /testwx {
+  proxy_pass   http://127.0.0.1:8080/wx;
+  proxy_cookie_path  /wx /testwx;#这里的路径要注意对应关系
+}
+```
 
 
 
