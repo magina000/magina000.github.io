@@ -4,7 +4,7 @@ date: 2019-10-16 15:55:51
 categories: 学习
 tags: [nginx]
 ---
-# 主要是Vue路由history模式的踩坑记录，记录下来。
+> 主要是Vue路由history模式的踩坑记录，记录下来。
 
 ## hash模式下的配置
 ```

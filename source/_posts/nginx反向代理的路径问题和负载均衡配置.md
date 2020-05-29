@@ -4,7 +4,7 @@ date: 2019-12-20 09:03:28
 categories: 学习
 tags: [nginx]
 ---
-## 最近一次项目上线过程中，配负载均衡的同时，反向代理路径搞错了，特此记录！！！ ##
+> 最近一次项目上线过程中，配负载均衡的同时，反向代理路径搞错了，特此记录！！！ ##
 
 ### proxy_pass 路径问题
 `proxy_pass http://localhost:8080`和`proxy_pass http://localhost:8080/`(多了末尾的/)是不同的的处理方式，而proxy_pass `http://localhost:8080/`和`proxy_pass http://localhost:8080/abc`是相同的处理方式。
