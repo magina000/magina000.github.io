@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。默认已经安装axios 引入在项目的src目录中，新建一个api文件夹，然后在里面新建一个http.js，index.js文件。http.js文件用来封装axios，index.js用来统一管理接口 12345// 在http.js中引入axiosimport axios from &apos;axios&apos;; // 引入axio">
+  <meta name="description" content="axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。  默认已经安装axios 引入在项目的src目录中，新建一个api文件夹，然后在里面新建一个http.js，index.js文件。http.js文件用来封装axios，index.js用来统一管理接口 12345// 在http.js中引入axiosimport axios from &apos;axios&apos;; // 引入a">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue中axios请求封装">
 <meta property="og:url" content="http://yoursite.com/2019/09/23/vue中axios请求封装/index.html">
 <meta property="og:site_name" content="Magina&#39;s Blog">
-<meta property="og:description" content="axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。默认已经安装axios 引入在项目的src目录中，新建一个api文件夹，然后在里面新建一个http.js，index.js文件。http.js文件用来封装axios，index.js用来统一管理接口 12345// 在http.js中引入axiosimport axios from &apos;axios&apos;; // 引入axio">
+<meta property="og:description" content="axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。  默认已经安装axios 引入在项目的src目录中，新建一个api文件夹，然后在里面新建一个http.js，index.js文件。http.js文件用来封装axios，index.js用来统一管理接口 12345// 在http.js中引入axiosimport axios from &apos;axios&apos;; // 引入a">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-24T02:18:07.794Z">
+<meta property="og:updated_time" content="2020-05-29T06:19:59.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue中axios请求封装">
-<meta name="twitter:description" content="axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。默认已经安装axios 引入在项目的src目录中，新建一个api文件夹，然后在里面新建一个http.js，index.js文件。http.js文件用来封装axios，index.js用来统一管理接口 12345// 在http.js中引入axiosimport axios from &apos;axios&apos;; // 引入axio">
+<meta name="twitter:description" content="axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。  默认已经安装axios 引入在项目的src目录中，新建一个api文件夹，然后在里面新建一个http.js，index.js文件。http.js文件用来封装axios，index.js用来统一管理接口 12345// 在http.js中引入axiosimport axios from &apos;axios&apos;; // 引入a">
 
 
 
@@ -411,7 +411,10 @@
       
 
       
-        <h2 id="axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。"><a href="#axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。" class="headerlink" title="axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。"></a>axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。</h2><p>默认已经安装axios</p>
+        <blockquote>
+<p>axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。</p>
+</blockquote>
+<p>默认已经安装axios</p>
 <h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>在项目的src目录中，新建一个api文件夹，然后在里面新建一个http.js，index.js文件。http.js文件用来封装axios，index.js用来统一管理接口</p>
 <figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在http.js中引入axios</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span>; <span class="comment">// 引入axios</span></span><br><span class="line"><span class="keyword">import</span> QS <span class="keyword">from</span> <span class="string">'qs'</span>; <span class="comment">// 引入qs模块，用来序列化post类型的数据，后面会提到</span></span><br><span class="line"><span class="comment">// ElementUI的message提示框组件，可根据使用的ui组件更改。</span></span><br><span class="line"><span class="keyword">import</span> &#123; Message &#125; <span class="keyword">from</span> <span class="string">'element-ui'</span>;</span><br></pre></td></tr></table></figure>
 
@@ -466,13 +469,6 @@
       
       
       <div class="popular-posts-title"><a href="/2019/12/03/vue项目elementUI实现树状下拉选择组件（常见机构选择）/" rel="bookmark">vue项目elementUI实现树状下拉选择组件（常见机构选择）</a></div>
-      
-    </li>
-  
-    <li class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="/2020/05/28/mvvm理解并简易实现数据双向绑定/" rel="bookmark">mvvm理解并简易实现数据双向绑定</a></div>
       
     </li>
   
@@ -597,7 +593,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -635,7 +631,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -673,7 +671,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。"><span class="nav-number">1.</span> <span class="nav-text">axios的封装和api接口的统一管理，主要目的是简化代码和利于后期的更新维护。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入"><span class="nav-number">1.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境切换"><span class="nav-number">1.2.</span> <span class="nav-text">环境切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建实例并设置请求超时"><span class="nav-number">1.3.</span> <span class="nav-text">创建实例并设置请求超时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST请求头的设置"><span class="nav-number">1.4.</span> <span class="nav-text">POST请求头的设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求拦截"><span class="nav-number">1.5.</span> <span class="nav-text">请求拦截</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应拦截"><span class="nav-number">1.6.</span> <span class="nav-text">响应拦截</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#api管理"><span class="nav-number">1.7.</span> <span class="nav-text">api管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面中调用"><span class="nav-number">1.8.</span> <span class="nav-text">页面中调用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入"><span class="nav-number">1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境切换"><span class="nav-number">2.</span> <span class="nav-text">环境切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建实例并设置请求超时"><span class="nav-number">3.</span> <span class="nav-text">创建实例并设置请求超时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST请求头的设置"><span class="nav-number">4.</span> <span class="nav-text">POST请求头的设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求拦截"><span class="nav-number">5.</span> <span class="nav-text">请求拦截</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应拦截"><span class="nav-number">6.</span> <span class="nav-text">响应拦截</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#api管理"><span class="nav-number">7.</span> <span class="nav-text">api管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面中调用"><span class="nav-number">8.</span> <span class="nav-text">页面中调用</span></a></li></ol></div>
             
 
           </div>

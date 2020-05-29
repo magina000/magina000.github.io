@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="最近一次项目上线过程中，配负载均衡的同时，反向代理路径搞错了，特此记录！！！proxy_pass 路径问题proxy_pass http://localhost:8080和proxy_pass http://localhost:8080/(多了末尾的/)是不同的的处理方式，而proxy_pass http://localhost:8080/和proxy_pass http://localhost:">
+  <meta name="description" content="最近一次项目上线过程中，配负载均衡的同时，反向代理路径搞错了，特此记录！！！ ##  proxy_pass 路径问题proxy_pass http://localhost:8080和proxy_pass http://localhost:8080/(多了末尾的/)是不同的的处理方式，而proxy_pass http://localhost:8080/和proxy_pass http://loca">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nginx反向代理的路径问题和负载均衡配置">
 <meta property="og:url" content="http://yoursite.com/2019/12/20/nginx反向代理的路径问题和负载均衡配置/index.html">
 <meta property="og:site_name" content="Magina&#39;s Blog">
-<meta property="og:description" content="最近一次项目上线过程中，配负载均衡的同时，反向代理路径搞错了，特此记录！！！proxy_pass 路径问题proxy_pass http://localhost:8080和proxy_pass http://localhost:8080/(多了末尾的/)是不同的的处理方式，而proxy_pass http://localhost:8080/和proxy_pass http://localhost:">
+<meta property="og:description" content="最近一次项目上线过程中，配负载均衡的同时，反向代理路径搞错了，特此记录！！！ ##  proxy_pass 路径问题proxy_pass http://localhost:8080和proxy_pass http://localhost:8080/(多了末尾的/)是不同的的处理方式，而proxy_pass http://localhost:8080/和proxy_pass http://loca">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-20T02:17:37.557Z">
+<meta property="og:updated_time" content="2020-05-29T06:20:24.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx反向代理的路径问题和负载均衡配置">
-<meta name="twitter:description" content="最近一次项目上线过程中，配负载均衡的同时，反向代理路径搞错了，特此记录！！！proxy_pass 路径问题proxy_pass http://localhost:8080和proxy_pass http://localhost:8080/(多了末尾的/)是不同的的处理方式，而proxy_pass http://localhost:8080/和proxy_pass http://localhost:">
+<meta name="twitter:description" content="最近一次项目上线过程中，配负载均衡的同时，反向代理路径搞错了，特此记录！！！ ##  proxy_pass 路径问题proxy_pass http://localhost:8080和proxy_pass http://localhost:8080/(多了末尾的/)是不同的的处理方式，而proxy_pass http://localhost:8080/和proxy_pass http://loca">
 
 
 
@@ -411,7 +411,10 @@
       
 
       
-        <h2 id="最近一次项目上线过程中，配负载均衡的同时，反向代理路径搞错了，特此记录！！！"><a href="#最近一次项目上线过程中，配负载均衡的同时，反向代理路径搞错了，特此记录！！！" class="headerlink" title="最近一次项目上线过程中，配负载均衡的同时，反向代理路径搞错了，特此记录！！！"></a>最近一次项目上线过程中，配负载均衡的同时，反向代理路径搞错了，特此记录！！！</h2><h3 id="proxy-pass-路径问题"><a href="#proxy-pass-路径问题" class="headerlink" title="proxy_pass 路径问题"></a>proxy_pass 路径问题</h3><p><code>proxy_pass http://localhost:8080</code>和<code>proxy_pass http://localhost:8080/</code>(多了末尾的/)是不同的的处理方式，而proxy_pass <code>http://localhost:8080/</code>和<code>proxy_pass http://localhost:8080/abc</code>是相同的处理方式。</p>
+        <blockquote>
+<p>最近一次项目上线过程中，配负载均衡的同时，反向代理路径搞错了，特此记录！！！ ##</p>
+</blockquote>
+<h3 id="proxy-pass-路径问题"><a href="#proxy-pass-路径问题" class="headerlink" title="proxy_pass 路径问题"></a>proxy_pass 路径问题</h3><p><code>proxy_pass http://localhost:8080</code>和<code>proxy_pass http://localhost:8080/</code>(多了末尾的/)是不同的的处理方式，而proxy_pass <code>http://localhost:8080/</code>和<code>proxy_pass http://localhost:8080/abc</code>是相同的处理方式。</p>
 <p><strong>总结一下:</strong></p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">  <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">  <span class="attribute">server_name</span>  localhost;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">location</span> /api1/ &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://localhost:8080;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment"># http://localhost/api1/xxx -&gt; http://localhost:8080/api1/xxx</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">location</span> /api2/ &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://localhost:8080/;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment"># http://localhost/api2/xxx -&gt; http://localhost:8080/xxx</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">location</span> /api3 &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://localhost:8080;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment"># http://localhost/api3/xxx -&gt; http://localhost:8080/api3/xxx</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">location</span> /api4 &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://localhost:8080/;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment"># http://localhost/api4/xxx -&gt; http://localhost:8080//xxx，请注意这里的双斜线，好好分析一下。</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">location</span> /api5/ &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://localhost:8080/haha;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment"># http://localhost/api5/xxx -&gt; http://localhost:8080/hahaxxx，请注意这里的haha和xxx之间没有斜杠，分析一下原因。</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">location</span> /api6/ &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://localhost:8080/haha/;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment"># http://localhost/api6/xxx -&gt; http://localhost:8080/haha/xxx</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">location</span> /api7 &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://localhost:8080/haha;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment"># http://localhost/api7/xxx -&gt; http://localhost:8080/haha/xxx</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">location</span> /api8 &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://localhost:8080/haha/;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment"># http://localhost/api8/xxx -&gt; http://localhost:8080/haha//xxx，请注意这里的双斜杠。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -575,7 +578,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -613,7 +616,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -651,7 +656,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最近一次项目上线过程中，配负载均衡的同时，反向代理路径搞错了，特此记录！！！"><span class="nav-number">1.</span> <span class="nav-text">最近一次项目上线过程中，配负载均衡的同时，反向代理路径搞错了，特此记录！！！</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#proxy-pass-路径问题"><span class="nav-number">1.1.</span> <span class="nav-text">proxy_pass 路径问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负载均衡配置"><span class="nav-number">1.2.</span> <span class="nav-text">负载均衡配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-轮询（默认）"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.轮询（默认）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-权重"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.权重</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-ip-hash"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.ip_hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-fair"><span class="nav-number">1.2.4.</span> <span class="nav-text">4.fair</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#较完整的一份配置"><span class="nav-number">1.2.5.</span> <span class="nav-text">较完整的一份配置</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#proxy-pass-路径问题"><span class="nav-number">1.</span> <span class="nav-text">proxy_pass 路径问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负载均衡配置"><span class="nav-number">2.</span> <span class="nav-text">负载均衡配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-轮询（默认）"><span class="nav-number">2.1.</span> <span class="nav-text">1.轮询（默认）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-权重"><span class="nav-number">2.2.</span> <span class="nav-text">2.权重</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-ip-hash"><span class="nav-number">2.3.</span> <span class="nav-text">3.ip_hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-fair"><span class="nav-number">2.4.</span> <span class="nav-text">4.fair</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#较完整的一份配置"><span class="nav-number">2.5.</span> <span class="nav-text">较完整的一份配置</span></a></li></ol></li></ol></div>
             
 
           </div>

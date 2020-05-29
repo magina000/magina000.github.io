@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="主要是Vue路由history模式的踩坑记录，记录下来。hash模式下的配置123456789//html访问路径location / &amp;#123;    root  /web/project/**;  // 本地项目的路径    index index.html index.htm;&amp;#125;//api接口代理location /api/ &amp;#123;    proxy_pass http:/">
+  <meta name="description" content="主要是Vue路由history模式的踩坑记录，记录下来。  hash模式下的配置123456789//html访问路径location / &amp;#123;    root  /web/project/**;  // 本地项目的路径    index index.html index.htm;&amp;#125;//api接口代理location /api/ &amp;#123;    proxy_pass htt">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vueRouter history模式下的nginx配置">
 <meta property="og:url" content="http://yoursite.com/2019/10/16/vueRouter-history模式下的nginx配置/index.html">
 <meta property="og:site_name" content="Magina&#39;s Blog">
-<meta property="og:description" content="主要是Vue路由history模式的踩坑记录，记录下来。hash模式下的配置123456789//html访问路径location / &amp;#123;    root  /web/project/**;  // 本地项目的路径    index index.html index.htm;&amp;#125;//api接口代理location /api/ &amp;#123;    proxy_pass http:/">
+<meta property="og:description" content="主要是Vue路由history模式的踩坑记录，记录下来。  hash模式下的配置123456789//html访问路径location / &amp;#123;    root  /web/project/**;  // 本地项目的路径    index index.html index.htm;&amp;#125;//api接口代理location /api/ &amp;#123;    proxy_pass htt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-20T02:18:04.297Z">
+<meta property="og:updated_time" content="2020-05-29T06:19:54.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vueRouter history模式下的nginx配置">
-<meta name="twitter:description" content="主要是Vue路由history模式的踩坑记录，记录下来。hash模式下的配置123456789//html访问路径location / &amp;#123;    root  /web/project/**;  // 本地项目的路径    index index.html index.htm;&amp;#125;//api接口代理location /api/ &amp;#123;    proxy_pass http:/">
+<meta name="twitter:description" content="主要是Vue路由history模式的踩坑记录，记录下来。  hash模式下的配置123456789//html访问路径location / &amp;#123;    root  /web/project/**;  // 本地项目的路径    index index.html index.htm;&amp;#125;//api接口代理location /api/ &amp;#123;    proxy_pass htt">
 
 
 
@@ -411,7 +411,10 @@
       
 
       
-        <h1 id="主要是Vue路由history模式的踩坑记录，记录下来。"><a href="#主要是Vue路由history模式的踩坑记录，记录下来。" class="headerlink" title="主要是Vue路由history模式的踩坑记录，记录下来。"></a>主要是Vue路由history模式的踩坑记录，记录下来。</h1><h2 id="hash模式下的配置"><a href="#hash模式下的配置" class="headerlink" title="hash模式下的配置"></a>hash模式下的配置</h2><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//html访问路径</span><br><span class="line"><span class="keyword">location</span> <span class="title">/ &#123;</span></span><br><span class="line"><span class="title">    root</span>  /web/project/**;  // 本地项目的路径</span><br><span class="line">    index index.html index.htm;</span><br><span class="line">&#125;</span><br><span class="line">//api接口代理</span><br><span class="line"><span class="keyword">location</span> <span class="title">/api</span>/ &#123;</span><br><span class="line">    proxy_pass http://<span class="number">192.168</span>.<span class="number">1.1</span>:<span class="number">8080</span>/;（后端接口地址,默认端口号<span class="number">80</span>可以不加）</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <blockquote>
+<p>主要是Vue路由history模式的踩坑记录，记录下来。</p>
+</blockquote>
+<h2 id="hash模式下的配置"><a href="#hash模式下的配置" class="headerlink" title="hash模式下的配置"></a>hash模式下的配置</h2><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//html访问路径</span><br><span class="line"><span class="keyword">location</span> <span class="title">/ &#123;</span></span><br><span class="line"><span class="title">    root</span>  /web/project/**;  // 本地项目的路径</span><br><span class="line">    index index.html index.htm;</span><br><span class="line">&#125;</span><br><span class="line">//api接口代理</span><br><span class="line"><span class="keyword">location</span> <span class="title">/api</span>/ &#123;</span><br><span class="line">    proxy_pass http://<span class="number">192.168</span>.<span class="number">1.1</span>:<span class="number">8080</span>/;（后端接口地址,默认端口号<span class="number">80</span>可以不加）</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><font size="3"><strong>注意:</strong></font><br><font size="2" color="#2b91af"><em>如果出现404</em></font><br>1.proxy_pass 地址后面要不要加/取决于匹配的 /api/ 作不作为你uri的一部分，如果 /api/ 是其中一部分,则不需要带上 / ； 反之带上。加了 / 相当于是绝对根路径，nginx 不会把location 中匹配的路径 /api/ 带上。<br>2.proxy_pass的地址记得在hosts文件做ip映射，建议直接使用域名对应的ip地址。<br>3.location 中 ~ （区分大小写）与 ~* （不区分大小写）标识均为正则匹配。如果你不确定，请在location后面加上 location ~* /api/ { }这样的配置 不区分 api三个字母的大小写。</p>
 <h2 id="history模式下的配置"><a href="#history模式下的配置" class="headerlink" title="history模式下的配置"></a>history模式下的配置</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>在进行项目的主页的时候，一切正常，可以访问，但是当刷新页面或者直接访问路径的时候就会返回404，因为在history模式下，只是动态的通过js操作window.history来改变浏览器地址栏里的路径，并没有发起http请求，但是直接在浏览器里输入这个地址的时候，就一定要对服务器发起http请求，但是这个目标在服务器上又不存在，所以会返回404</p>
@@ -569,7 +572,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -607,7 +610,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -645,7 +650,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#主要是Vue路由history模式的踩坑记录，记录下来。"><span class="nav-number">1.</span> <span class="nav-text">主要是Vue路由history模式的踩坑记录，记录下来。</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hash模式下的配置"><span class="nav-number">1.1.</span> <span class="nav-text">hash模式下的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#history模式下的配置"><span class="nav-number">1.2.</span> <span class="nav-text">history模式下的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">1.2.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">问题</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hash模式下的配置"><span class="nav-number">1.</span> <span class="nav-text">hash模式下的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#history模式下的配置"><span class="nav-number">2.</span> <span class="nav-text">history模式下的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">2.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-1"><span class="nav-number">2.2.</span> <span class="nav-text">问题</span></a></li></ol></li></ol></div>
             
 
           </div>
