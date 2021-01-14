@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Magina&#39;s Blog">
 <meta property="og:description" content="最近一次项目上线过程中，配负载均衡的同时，反向代理路径搞错了，特此记录！！！ ##  proxy_pass 路径问题proxy_pass http://localhost:8080和proxy_pass http://localhost:8080/(多了末尾的/)是不同的的处理方式，而proxy_pass http://localhost:8080/和proxy_pass http://loca">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-08-03T01:02:26.938Z">
+<meta property="og:updated_time" content="2020-08-10T01:25:29.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx反向代理的路径问题和负载均衡配置">
 <meta name="twitter:description" content="最近一次项目上线过程中，配负载均衡的同时，反向代理路径搞错了，特此记录！！！ ##  proxy_pass 路径问题proxy_pass http://localhost:8080和proxy_pass http://localhost:8080/(多了末尾的/)是不同的的处理方式，而proxy_pass http://localhost:8080/和proxy_pass http://loca">
@@ -422,14 +422,16 @@
 <p>[root]<br>语法：root path<br>默认值：root html<br>配置段：http、server、location、if</p>
 <p>[alias]<br>语法：alias path<br>配置段：location</p>
 <p>root实例：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location <span class="regexp">/t/</span> &#123;</span><br><span class="line">     root <span class="regexp">/www/</span>root<span class="regexp">/html/</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location <span class="regexp">/t/</span> &#123;</span><br><span class="line">    root <span class="regexp">/www/</span>root<span class="regexp">/html/</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>如果一个请求的URI是/t/a.html时，web服务器将会返回服务器上的/www/root/html/t/a.html的文件。</p>
 <p>alias实例：</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">location</span> <span class="title">/t</span>/ &#123;</span><br><span class="line"> alias /www/root/html/new_t/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">location</span> <span class="title">/t</span>/ &#123;</span><br><span class="line">    alias /www/root/html/new_t/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>如果一个请求的URI是/t/a.html时，web服务器将会返回服务器上的/www/root/html/new_t/a.html的文件。注意这里是new_t，因为alias会把location后面配置的路径丢弃掉，把当前匹配到的目录指向到指定的目录。</p>
 <p><strong>注意：</strong><br><font size="3">1. 使用alias时，目录名后面一定要加”/“。</font><br><font size="3">2. alias在使用正则匹配时，必须捕捉要匹配的内容并在指定的内容处使用。</font><br><font size="3">3. alias只能位于location块中。（root可以不放在location中）</font></p>
+<h3 id="vue项目history模式下-页面刷新404问题"><a href="#vue项目history模式下-页面刷新404问题" class="headerlink" title="vue项目history模式下 页面刷新404问题"></a>vue项目history模式下 页面刷新404问题</h3><figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">location</span> /&#123;项目名称&#125;&#123;</span><br><span class="line">  root html;</span><br><span class="line">	<span class="keyword">index</span>  <span class="keyword">index</span>.html <span class="keyword">index</span>.htm;</span><br><span class="line">  <span class="keyword">if</span>( !-e $request_filename) &#123;</span><br><span class="line">    rewrite ^/(.*) /&#123;项目名称&#125;/<span class="keyword">index</span>.html last;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="负载均衡配置"><a href="#负载均衡配置" class="headerlink" title="负载均衡配置"></a>负载均衡配置</h3><p>1、upstream是关键字必须要有，后面的server_pool为一个Upstream集群组的名字，可以自定义；<br>2、server是关键字固定，后面可以接域名或IP。如果不指定端口，默认是80。结尾有分号。</p>
 <figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">http&#123;</span><br><span class="line">  upstream server_pool &#123;</span><br><span class="line">    <span class="keyword">server</span> <span class="number">192.68</span><span class="number">.0</span><span class="number">.14</span>:<span class="number">80</span>;</span><br><span class="line">    <span class="keyword">server</span> <span class="number">192.68</span><span class="number">.0</span><span class="number">.15</span>:<span class="number">80</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">server</span> &#123;</span><br><span class="line">    listen       <span class="number">80</span>;</span><br><span class="line">    server_name  localhost;</span><br><span class="line"></span><br><span class="line">    location /api &#123;</span><br><span class="line">      proxy_pass http:<span class="comment">//backserver;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -590,7 +592,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -630,7 +632,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -668,7 +672,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#proxy-pass-路径问题"><span class="nav-number">1.</span> <span class="nav-text">proxy_pass 路径问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态html路径（root和alias区别）"><span class="nav-number">2.</span> <span class="nav-text">静态html路径（root和alias区别）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负载均衡配置"><span class="nav-number">3.</span> <span class="nav-text">负载均衡配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-轮询（默认）"><span class="nav-number">3.1.</span> <span class="nav-text">1.轮询（默认）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-权重"><span class="nav-number">3.2.</span> <span class="nav-text">2.权重</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-ip-hash"><span class="nav-number">3.3.</span> <span class="nav-text">3.ip_hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-fair"><span class="nav-number">3.4.</span> <span class="nav-text">4.fair</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#较完整的一份配置"><span class="nav-number">3.5.</span> <span class="nav-text">较完整的一份配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#proxy-pass-路径问题"><span class="nav-number">1.</span> <span class="nav-text">proxy_pass 路径问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态html路径（root和alias区别）"><span class="nav-number">2.</span> <span class="nav-text">静态html路径（root和alias区别）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue项目history模式下-页面刷新404问题"><span class="nav-number">3.</span> <span class="nav-text">vue项目history模式下 页面刷新404问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负载均衡配置"><span class="nav-number">4.</span> <span class="nav-text">负载均衡配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-轮询（默认）"><span class="nav-number">4.1.</span> <span class="nav-text">1.轮询（默认）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-权重"><span class="nav-number">4.2.</span> <span class="nav-text">2.权重</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-ip-hash"><span class="nav-number">4.3.</span> <span class="nav-text">3.ip_hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-fair"><span class="nav-number">4.4.</span> <span class="nav-text">4.fair</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#较完整的一份配置"><span class="nav-number">4.5.</span> <span class="nav-text">较完整的一份配置</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -689,7 +693,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
